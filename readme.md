@@ -4,6 +4,8 @@
 
 (WIP) ESP-32 microcontroller Wireless Smart Remote firmware for ESPhome/ESP-IDF framework.
 
-![Snapchat-1080156684](https://github.com/henriklud/ControlD32/assets/9981417/9116e74b-0b5d-45b7-bd62-7462314a4199) ![Snapchat-1262069462](https://github.com/henriklud/ControlD32/assets/9981417/3c8d3b19-be58-4a72-bdc8-f0e1dcbd041b)
-![Snapchat-591599664](https://github.com/henriklud/ControlD32/assets/9981417/6c5531bc-2a55-43a2-a4fe-622eec496c48) ![Snapchat-795408525](https://github.com/henriklud/ControlD32/assets/9981417/b1846864-144a-42d0-9350-966a354759ff)
-![Snapchat-34284245](https://github.com/henriklud/ControlD32/assets/9981417/0e04f29c-135b-4d9b-8eed-c69ef041602e)
+![Snapchat-1080156684](https://github.com/henriklud/ControlD32/assets/9981417/012ec498-9262-4e50-bdeb-a4c508170d18)
+![Snapchat-1262069462](https://github.com/henriklud/ControlD32/assets/9981417/7649dffe-c8fb-486f-8c9b-0e5d60ca5aa7)
+![Snapchat-591599664](https://github.com/henriklud/ControlD32/assets/9981417/4892468c-4068-46cb-8e82-2200a6148e9c)
+![Snapchat-795408525](https://github.com/henriklud/ControlD32/assets/9981417/cafbf5e8-e806-4526-87f0-cc089bfaf193)
+![Snapchat-34284245](https://github.com/henriklud/ControlD32/assets/9981417/73425e49-81bc-4bfa-8ac3-10b2d7397318)
