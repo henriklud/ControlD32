@@ -1,7 +1,5 @@
 ###############################################
 #               - ControlD32 -                #
-#         By Henrik Isefjær Ludvigsen         #
-#            github.com/henriklud             #
 ###############################################
 (WIP) ESP-32 microcontroller Wireless Smart Remote firmware for ESPhome/ESP-IDF framework.
 ![Snapchat-1080156684](https://github.com/henriklud/ControlD32/assets/9981417/9116e74b-0b5d-45b7-bd62-7462314a4199) ![Snapchat-1262069462](https://github.com/henriklud/ControlD32/assets/9981417/3c8d3b19-be58-4a72-bdc8-f0e1dcbd041b)
