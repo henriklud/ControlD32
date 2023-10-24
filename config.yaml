@@ -1,0 +1,94 @@
+###############################################
+#               - ControlD32 -                #
+#         By Henrik Isefjær Ludvigsen         #
+#            github.com/henriklud             #
+###############################################
+
+
+# set to true to disable pushing internal entities & attributes to Home Assistant. Default: True
+standalone_mode: 'True'
+
+
+# Disables advanced functions like custom action-calls, custom idle timings and direct "P2P" MQTT integration. Default: False
+easy_mode: 'False'
+
+# Home Assistant entities for various controls
+
+#mediaplayer: 'media_player.spotify_kneit2k'
+mediaplayer: 'media_player.mediabenk'
+
+audio_state: 'input_boolean.soundbar_state'
+audio_volume: 'input_number.soundbar_volume'
+
+#light: 'light.kontoret'
+#light_scene_select: 'input_select.scener_kontoret'
+
+light_scene_select: 'input_select.scener_stuen'
+light: 'light.stue_kjokken'
+
+weather_state: 'sensor.weather_now_norsk'
+weather_entity: 'weather.forecast_casa_godgutane_hourly'
+climate_state: 'input_boolean.stue_termostat'
+climate_target_temp: 'input_number.stue_target_temp'
+climate_current_temp: 'sensor.temperatur'
+climate_heater_state: 'input_boolean.oppvarming_stue'
+
+#############################
+#         Shortcuts         #
+#############################
+
+#Shortcut 1
+shortcut_1_enabled: 'True'
+shortcut_1_name: 'Taklampe' 
+shortcut_1_icon: 'mdi:ceiling-light'
+shortcut_1_entity: 'light.taklampe_kontor'
+shortcut_1_service: 'light.toggle'
+
+#Shortcut 2
+shortcut_2_enabled: 'True'
+shortcut_2_name: 'TV Quickfix' 
+shortcut_2_icon: 'mdi:television-shimmer'
+shortcut_2_entity: 'script.fjernsynet_quickfix'
+shortcut_2_service: 'script.turn_on'
+
+#Shortcut 3
+shortcut_3_enabled: 'True'
+shortcut_3_name: 'Soundbar fix' 
+shortcut_3_icon: 'mdi:speaker'
+shortcut_3_entity: ''
+shortcut_3_service: 'script.turn_on'
+
+#Shortcut 4
+shortcut_4_enabled: 'True'
+shortcut_4_name: 'Gaming-modus'
+shortcut_4_icon: 'mdi:controller'
+shortcut_4_entity: 'script.stue_tv_gamingmode'
+shortcut_4_service: 'script.turn_on'
+
+#Shortcut 5
+shortcut_5_enabled: 'True'
+shortcut_5_name: 'Spots hylle' 
+shortcut_5_icon: 'mdi:wall-sconce-flat'
+shortcut_5_entity: 'light.spots_hylle'
+shortcut_5_service: 'light.toggle'
+
+#Shortcut 6
+shortcut_6_enabled: 'True'
+shortcut_6_name: 'TV Quickfix' 
+shortcut_6_icon: 'mdi:television-shimmer'
+shortcut_6_entity: 'Script.fjernsynet_quickfix'
+shortcut_6_service: 'script.turn_on'
+
+#Shortcut 7
+shortcut_7_enabled: 'True'
+shortcut_7_name: 'Soundbar fix' 
+shortcut_7_icon: 'mdi:speaker'
+shortcut_7_entity: ''
+shortcut_7_service: 'script.turn_on'
+
+#Shortcut 8
+shortcut_8_enabled: 'True'
+shortcut_8_name: 'Gaming-modus'
+shortcut_8_icon: 'mdi:speaker'
+shortcut_8_entity: ''
+shortcut_8_service: 'script.turn_on'

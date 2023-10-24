@@ -1,0 +1,1089 @@
+esphome:
+  name: controld-32
+  friendly_name: ControlD-32
+  on_boot:
+  - priority: 600
+    then:    
+      - button.press: led1_blink_x10
+      - delay: 6s
+      - display.page.show: home_view        
+      - component.update: oled_lcd
+      - binary_sensor.template.publish:
+          id: controld_activity
+          state: True      
+  - priority: 600
+    then:    
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms      
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading
+      - component.update: oled_lcd      
+      - delay: 255ms
+      - animation.next_frame: gif_loading    
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: Europe/Oslo #"GMT+01:00"
+
+
+i2c:
+  scl: GPIO22
+  sda: GPIO21
+  scan: False
+
+font:
+  - file: "arial.ttf"
+    id: arial_bigger
+    size: 20
+  - file: "arial.ttf"
+    id: arial_big
+    size: 17
+  - file: "arial.ttf"
+    id: arial_normal
+    size: 13
+  - file: "arial.ttf"
+    id: arial_small
+    size: 12
+#  - file: "gfonts://Roboto" # "arial.ttf"
+  - file:
+      type: gfonts
+      family: Roboto
+      weight: 700
+    size: 18
+    id: roboto_big
+  - file:
+      type: gfonts
+      family: Roboto
+      #weight: 500
+    size: 14
+    id: roboto_normal
+  - file:
+      type: gfonts
+      family: Roboto
+      weight: 500
+    size: 11
+    id: roboto_small
+
+
+#interval:
+#  - interval: 333ms
+#    then:
+#      - if:
+#          condition:
+#            - display.is_displaying_page: splash_view 
+#          then:
+#            - animation.next_frame: gif_loading
+#            - component.update: oled_lcd
+
+globals:
+   - id: controld_state
+     type: int
+     restore_value: no
+     initial_value: '0'
+   - id: controld_menu
+     type: int
+     restore_value: no
+     initial_value: '0'
+   - id: launcher_selected_item
+     type: int
+     restore_value: no
+     initial_value: '1'
+   - id: vacuum_selected_item
+     type: int
+     restore_value: no
+     initial_value: '1'
+   - id: shortcuts_selected_item
+     type: int
+     restore_value: no
+     initial_value: '1'     
+substitutions: !include substitutions.yaml
+
+
+display:
+  - platform: ssd1306_i2c
+    id: oled_lcd
+    update_interval: .25s
+    flip_y: True
+    flip_x: True
+    external_vcc: False
+    contrast: 33%    
+    address: 0x3C
+    model: "SH1106 128x64"
+    pages:
+
+      - id: splash_view
+        lambda: !include GUI/splash.cpp
+
+      - id: home_view
+        lambda: !include GUI/home.cpp
+
+      - id: shortcuts_view
+        lambda: !include GUI/shortcuts.cpp
+
+      - id: launcher_view
+        lambda: !include GUI/launcher.cpp
+ 
+      - id: remote_view
+        lambda: !include GUI/remote.cpp
+
+      - id: light_view
+        lambda: !include GUI/light.cpp
+
+      - id: media_view
+        lambda: !include GUI/media.cpp
+    
+      - id: climate_view
+        lambda: !include GUI/climate.cpp
+    
+      - id: weather_view
+        lambda: !include GUI/weather.cpp
+
+      - id: vacuum_view
+        lambda: !include GUI/vacuum.cpp
+
+      - id: config_view
+        lambda: !include GUI/config.cpp
+
+output:
+  - platform: gpio
+    id: led1
+    pin: GPIO2
+
+button:
+
+
+  - platform: restart
+    name: "ControlD Reboot"
+    id: esp_reboot
+    internal: ${easy_mode}    
+  - platform: template
+    name: Status-LED Blink x1
+    id: led1_blink_x1
+    internal: ${standalone_mode}
+    on_press:
+      then:
+        - output.turn_on: led1
+        - delay: 55ms
+        - output.turn_off: led1
+  - platform: template
+    name: Status-LED Blink x10
+    id: led1_blink_x10
+    internal: ${standalone_mode}
+    on_press:
+      then:
+        - output.turn_on: led1
+        - delay: 125ms
+        - output.turn_off: led1
+        - delay: 125ms
+        - output.turn_on: led1
+        - delay: 125ms
+        - output.turn_off: led1
+        - delay: 125ms
+        - output.turn_on: led1
+        - delay: 125ms
+        - output.turn_off: led1
+        - delay: 125ms
+        - output.turn_on: led1
+        - delay: 125ms
+        - output.turn_off: led1
+        - delay: 125ms
+        - output.turn_on: led1
+        - delay: 125ms
+        - output.turn_off: led1
+        - delay: 125ms
+        - output.turn_on: led1
+        - delay: 125ms
+        - output.turn_off: led1
+        - delay: 125ms
+        - output.turn_on: led1
+        - delay: 125ms
+        - output.turn_off: led1
+        - delay: 125ms
+        - output.turn_on: led1
+        - delay: 125ms
+        - output.turn_off: led1
+        - delay: 125ms
+        - output.turn_on: led1
+        - delay: 125ms
+        - output.turn_off: led1
+        - delay: 125ms
+        - output.turn_on: led1
+        - delay: 125ms
+        - output.turn_off: led1
+        - delay: 125ms
+
+number:
+  - platform: template
+    name: "idle cooldown"
+    step: 5    
+    id: idle_cooldown
+    internal: ${easy_mode}
+    min_value: 5
+    max_value: 300  
+    optimistic: true
+    initial_value: "30"
+    restore_value: True
+    unit_of_measurement: "s"    
+      
+text_sensor:
+  - platform: template
+    name: Custom action-calls
+    id: action_call
+    icon: "mdi:console"
+    internal: ${easy_mode}
+    on_value:
+      then:
+        - delay: 150ms
+        - text_sensor.template.publish:
+            id: action_call
+            state: ""       
+
+  - platform: homeassistant
+    id: weather_entity
+    name: weather_entity
+    internal: ${standalone_mode} 
+    entity_id: ${weather_entity}
+  - platform: homeassistant
+    id: weather_state
+    name: weather_state
+
+    internal: ${standalone_mode}
+    entity_id: ${weather_state}    
+  - platform: homeassistant
+    id: climate_state
+    name: climate_state
+    internal: ${standalone_mode}
+    entity_id: ${climate_state}
+  - platform: homeassistant
+    id: mp_state
+    name: mp_state
+    internal: ${standalone_mode}
+    entity_id: ${mediaplayer}
+  - platform: homeassistant
+    id: mp_source
+    name: mp_source
+    internal: ${standalone_mode}
+    entity_id: ${mediaplayer}    
+  - platform: homeassistant
+    id: mp_title
+    attribute: media_title
+    internal: ${standalone_mode}
+    name: mp_title
+    entity_id: ${mediaplayer}
+  - platform: homeassistant
+    id: mp_artist
+    internal: ${standalone_mode}
+    name: mp_artist
+    attribute: media_artist
+    entity_id: ${mediaplayer}
+  - platform: homeassistant
+    id: mp_album
+    internal: ${standalone_mode}
+    name: mp_album
+    attribute: media_album_name
+    entity_id: ${mediaplayer}
+  - platform: homeassistant
+    name: ha_weather
+    internal: ${standalone_mode}
+    id: ha_weather
+    entity_id: sensor.weather_now
+sensor:
+  - platform: homeassistant
+    id: weather_temp
+    internal: ${standalone_mode}
+    name: weather_temp
+    force_update: true
+    attribute: temperature
+    entity_id: ${weather_entity}
+ #   unit_of_measurement: "°C"
+    state_class: "measurement"   
+
+  - platform: homeassistant
+    id: weather_wind
+    internal: ${standalone_mode}
+    name: weather_wind
+    force_update: true
+    attribute: wind_speed
+    entity_id: ${weather_entity}
+#    unit_of_measurement: "m/s"
+    state_class: "measurement"   
+
+  - platform: homeassistant
+    id: mp_volume
+    name: mp_volume
+    internal: ${standalone_mode}
+    entity_id: ${audio_volume}
+  - platform: homeassistant
+    id: climate_current_temp
+    name: climate_current_temp
+    internal: ${standalone_mode}
+    entity_id: ${climate_current_temp}
+  - platform: homeassistant
+    id: climate_target_temp
+    name: climate_target_temp
+    internal: ${standalone_mode}
+    entity_id: ${climate_target_temp}
+  - platform: internal_temperature
+    name: "ESP32 Temp"
+    id: internal_temp
+    update_interval: 10s  
+    accuracy_decimals: 1 
+    internal: ${standalone_mode}
+    entity_category: "diagnostic"
+  - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
+    name: "WiFi dB"
+    id: wifi_sig_db
+    update_interval: 30s
+    entity_category: "diagnostic"
+
+
+binary_sensor:
+  - platform: homeassistant
+    id: light_state
+    name: light_state
+    internal: ${standalone_mode}
+    entity_id: ${light}
+  - platform: homeassistant
+    id: climate_heater_state
+    name: climate_heater_state
+    internal: ${standalone_mode}
+    entity_id: ${climate_heater_state}
+
+  - platform: status
+    internal: ${standalone_mode}  
+    name: Status
+    id: api_state
+
+  - platform: template
+    publish_initial_state: False
+    filters:
+      - delayed_off: !lambda return id(idle_cooldown).state * 1000;
+    id: controld_activity
+    name: "Bruksaktivitet"
+    on_release:
+      - then:
+        - lambda: |-
+            id(controld_state) = 0;
+            id(oled_lcd).turn_off();        
+    on_press:
+      - then: 
+        - lambda: |-
+            id(controld_state) = 1;
+            id(oled_lcd).turn_on();            
+    device_class: presence
+    icon: "mdi:motion-sensor"
+    internal: ${easy_mode}
+
+###############################################
+# INPUT KNAPPER                               #
+############################################### 
+
+  - platform: gpio
+    internal: ${standalone_mode}    
+    id: button_enter
+    name: button_enter
+    pin:
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+      number: GPIO18
+    filters:
+       #- delayed_off: 25ms
+    on_release:
+      then:
+        - binary_sensor.template.publish:
+            id: controld_activity
+            state: False     
+    on_press: 
+      then: !include input/button_enter.yaml
+                           
+  - platform: gpio
+    internal: ${standalone_mode}
+    id: button_prev
+    name: button_prev
+    pin:
+      inverted: true
+
+      mode:
+        input: true
+        pullup: true
+      number: GPIO19
+    filters:
+       #- delayed_off: 25ms
+    on_release:
+      then:
+        - binary_sensor.template.publish:
+            id: controld_activity
+            state: False          
+    on_press:
+      then: !include input/button_prev.yaml
+
+  - platform: gpio
+    internal: ${standalone_mode}
+    id: button_confirm
+    name: button_confirm
+    pin:
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+      number: GPIO12
+    filters:
+       #- delayed_off: 25ms
+ #     - delayed_on: 25ms  
+    on_press:
+      then: !include input/button_confirm.yaml
+    on_release:
+      then:
+        - binary_sensor.template.publish:
+            id: controld_activity
+            state: False        
+
+  - platform: gpio
+    internal: ${standalone_mode}
+    id: button_next
+    name: button_next
+    pin:
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+      number: GPIO33
+    filters:
+       #- delayed_off: 25ms
+    on_release:
+      then:
+        - binary_sensor.template.publish:
+            id: controld_activity
+            state: False          
+    on_press:
+      then: !include input/button_next.yaml
+
+  - platform: gpio
+    internal: ${standalone_mode}
+    id: button_back
+    name: button_back
+    pin:
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+      number: GPIO14
+    filters:
+      ###- delayed_off: 75
+    on_release:
+      then:
+        - binary_sensor.template.publish:
+            id: controld_activity
+            state: False          
+    on_press:
+      then: !include input/button_back.yaml
+
+
+  - platform: gpio
+    internal: ${standalone_mode}
+    id: button_up
+    name: button_up
+    pin:
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+      number: GPIO5
+    filters:
+       #- delayed_off: 25ms
+    on_release:
+      then:
+        - binary_sensor.template.publish:
+            id: controld_activity
+            state: False          
+    on_press:
+      then: !include input/button_up.yaml
+
+  - platform: gpio
+    internal: ${standalone_mode}
+    id: button_left
+    name: button_left
+    pin:
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+      number: GPIO25
+    filters:
+       #- delayed_off: 25ms
+    on_release:
+      then:
+        - binary_sensor.template.publish:
+            id: controld_activity
+            state: False          
+    on_press:
+      then:  !include input/button_left.yaml
+
+  - platform: gpio
+    id: button_right
+    internal: ${standalone_mode}
+    name: button_right
+    pin:
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+      number: GPIO27
+    filters:
+      ###- delayed_off: 75
+    on_release:
+      then:
+        - binary_sensor.template.publish:
+            id: controld_activity
+            state: False          
+    on_press:
+      then: !include input/button_right.yaml
+
+
+  - platform: gpio
+    internal: ${standalone_mode}    
+    id: button_down
+    name: button_down
+    pin:
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+      number: GPIO4
+    filters:
+       #- delayed_off: 25ms
+    on_release:
+      then:
+        - binary_sensor.template.publish:
+            id: controld_activity
+            state: False          
+    on_press:
+      then: !include input/button_down.yaml
+
+
+  - platform: gpio
+    internal: ${standalone_mode}
+    id: button_action
+    name: button_action
+    pin:
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+      number: GPIO15
+    filters:
+       #- delayed_off: 25ms
+    on_release:
+      then:
+        - binary_sensor.template.publish:
+            id: controld_activity
+            state: False  
+                   
+    on_press:
+      then: !include input/button_action.yaml
+
+
+###############################################
+# INPUT KNAPPER ///////////////               #
+############################################### 
+animation:
+  - file: ControlD-MASTER/GUI/bin/loading.gif
+    id: gif_loading
+    resize: 44x44
+
+image:
+
+  - file: mdi:battery-off-outline
+    id: icon_battery_alert
+    resize: ${gfx_icon_size_small}
+  - file: mdi:battery-outline
+    id: icon_battery_0
+    resize: ${gfx_icon_size_small}
+  - file: mdi:battery-20
+    id: icon_battery_20
+    resize: ${gfx_icon_size_small}
+  - file: mdi:battery-40
+    id: icon_battery_40
+    resize: ${gfx_icon_size_small}
+  - file: mdi:battery-60
+    id: icon_battery_60
+    resize: ${gfx_icon_size_small}
+  - file: mdi:battery-80
+    id: icon_battery_80
+    resize: ${gfx_icon_size_small}
+  - file: mdi:battery
+    id: icon_battery_100
+    resize: ${gfx_icon_size_small}
+
+  - file: mdi:radiator
+    id: icon_radiator
+    resize: ${gfx_icon_size_small}  
+  - file: mdi:wifi
+    id: icon_wifi
+    resize: ${gfx_icon_size_small}
+  - file: mdi:wifi-off
+    id: icon_wifi_off
+    resize: ${gfx_icon_size_small}    
+  - file: mdi:television-classic
+    id: icon_tv
+    resize: ${gfx_icon_size_small}
+  - file: mdi:television-classic-off
+    id: icon_tv_off
+    resize: ${gfx_icon_size_small}
+  - file: mdi:sun-snowflake-variant
+    id: icon_thermostat
+    resize: ${gfx_icon_size_small}
+  - file: mdi:thermometer-auto
+    id: icon_thermometer
+    resize: ${gfx_icon_size_small}
+  - file: mdi:thermometer-off
+    id: icon_thermometer_off
+    resize: ${gfx_icon_size_small}
+  - file: mdi:weather-partly-cloudy
+    id: icon_weather
+    resize: ${gfx_icon_size_small}
+  - file: mdi:music
+    id: icon_music
+    resize: ${gfx_icon_size_small}
+  - file: mdi:home
+    id: icon_home
+    resize: ${gfx_icon_size_small}
+  - file: mdi:pause
+    id: icon_pause
+    resize: ${gfx_icon_size_small}
+  - file: mdi:play
+    id: icon_play
+    resize: ${gfx_icon_size_small}
+  - file: mdi:remote
+    id: icon_remote
+    resize: ${gfx_icon_size_small}
+
+  - file: mdi:home-thermometer
+    id: icon_temp_inside
+    resize: ${gfx_icon_size_small}
+
+  - file: mdi:thermometer-lines
+    id: icon_temp_outside
+    resize: ${gfx_icon_size_small}
+
+  - file: mdi:heat-wave
+    id: icon_flame
+    resize: ${gfx_icon_size_small}
+
+  - file: mdi:thermometer-auto
+    id: img_thermometer
+    resize: ${gfx_icon_size_normal}
+
+
+  - file: mdi:thermometer-off
+    id: img_thermometer_off
+    resize: ${gfx_icon_size_normal}
+
+
+  - file: mdi:lightbulb-on
+    id: img_light
+    resize: ${gfx_icon_size_normal}
+
+  - file: mdi:power
+    id: img_power
+    resize: ${gfx_icon_size_normal}
+
+  - file: mdi:cog
+    id: img_config
+    resize: ${gfx_icon_size_normal}
+
+
+  - file: mdi:pause
+    id: img_pause
+    resize: ${gfx_icon_size_normal}
+
+  - file: mdi:play
+    id: img_play
+    resize: ${gfx_icon_size_normal}
+
+  - file: mdi:skip-previous
+    id: img_previous
+    resize: ${gfx_icon_size_normal}
+
+  - file: mdi:skip-next
+    id: img_next
+    resize: ${gfx_icon_size_normal}
+
+
+  - file: mdi:thermometer-plus
+    id: img_thermometer_plus
+    resize: ${gfx_icon_size_normal}
+
+  - file: mdi:thermometer-minus
+    id: img_thermometer_minus
+    resize: ${gfx_icon_size_normal}
+    
+
+
+  - file: mdi:magic-staff
+    id: img_scene
+    resize: ${gfx_icon_size_normal}
+
+
+  - file: mdi:volume-minus
+    id: img_volume_minus
+    resize: ${gfx_icon_size_normal}
+
+  - file: mdi:volume-plus
+    id: img_volume_plus
+    resize: ${gfx_icon_size_normal}
+
+#    HOME
+
+  - file: mdi:lightbulb
+    id: img_home_light_on
+    resize: ${gfx_rendersize_home_shortcut}
+
+  - file: mdi:lightbulb-off-outline
+    id: img_home_light_off
+    resize: ${gfx_rendersize_home_shortcut}
+  - file: mdi:pause
+    id: img_home_pause
+    resize: ${gfx_rendersize_home_shortcut}
+
+  - file: mdi:play
+    id: img_home_play
+    resize: ${gfx_rendersize_home_shortcut}
+
+  - file: mdi:radiator-disabled
+    id: img_home_radiator
+    resize: ${gfx_rendersize_home_shortcut}
+
+  - file: mdi:radiator
+    id: img_home_radiator_on
+    resize: ${gfx_rendersize_home_shortcut}
+
+  - file: mdi:star
+    id: img_home_shortcuts
+    resize: ${gfx_rendersize_home_shortcut}
+
+
+#    LAUNCHER                   # 
+  - file: mdi:rocket-launch
+    id: icon_launcher_icon
+    resize: 15x15
+  - file: mdi:television-classic
+    id: icon_launcher_remote
+    resize: 19x19
+  - file: mdi:weather-partly-cloudy
+    id: icon_launcher_weather
+    resize: 19x19
+  - file: mdi:music
+    id: icon_launcher_music
+    resize: 19x19
+  - file: mdi:home
+    id: icon_launcher_home
+    resize: 19x19
+  - file: mdi:thermometer
+    id: icon_launcher_thermostat
+    resize: 19x19   
+  - file: mdi:lightbulb-on    
+    id: icon_launcher_light
+    resize: 19x19   
+  - file: mdi:wrench-cog
+    id: icon_launcher_config
+    resize: 19x19  
+  - file: mdi:vacuum
+    id: icon_launcher_vacuum
+    resize: 19x19      
+  - file: mdi:power
+    id: icon_launcher_power
+    resize: 19x19       
+  - file: mdi:star
+    id: icon_launcher_shortcuts
+    resize: 19x19 
+
+
+  - file: mdi:restart-alert
+    id: img_restart
+    resize: ${gfx_icon_size_normal}
+
+  - file: mdi:rocket-launch
+    id: img_launcher
+    resize: ${gfx_icon_size_normal}
+
+  - file: mdi:radiator-disabled
+    id: img_radiator
+    resize: ${gfx_icon_size_normal}
+
+  - file: mdi:radiator
+    id: img_radiator_on
+    resize: ${gfx_icon_size_normal}
+
+  - file: mdi:lightbulb-group
+    id: img_light_on
+    resize: ${gfx_icon_size_normal}
+
+  - file: mdi:lightbulb-group-off
+    id: img_light_off
+    resize: ${gfx_icon_size_normal}
+
+
+
+# Vacuum
+  - file: mdi:sofa
+    id: img_sofa
+    resize: 18x18
+  - file: mdi:rug
+    id: img_rug
+    resize: 18x18    
+  - file: mdi:countertop
+    id: img_kitchen
+    resize: 18x18
+  - file: mdi:desk
+    id: img_office
+    resize: 18x18
+  - file: mdi:bookshelf
+    id: img_lounge
+    resize: 18x18
+  - file: mdi:toilet
+    id: img_toilet
+    resize: 18x18    
+  - file: mdi:bed
+    id: img_bed
+    resize: 18x18 
+  - file: mdi:lightning-bolt
+    id: img_charge
+    resize: 18x18     
+
+#WEATHER
+
+  - file: mdi:thermometer
+    id: img_weather_temp
+    resize: ${gfx_rendersize_home_weathertempimg}
+
+  - file: mdi:windsock
+    id: img_weather_wind
+    resize: ${gfx_rendersize_home_weatherwindimg}
+
+
+  - file: mdi:weather-cloudy
+    id: img_weather_cloudy
+    resize: ${gfx_rendersize_home_weatherimg}
+
+  - file: mdi:weather-fog
+    id: img_weather_fog
+    resize: ${gfx_rendersize_home_weatherimg}
+
+  - file: mdi:weather-hail
+    id: img_weather_hail
+    resize: ${gfx_rendersize_home_weatherimg}
+
+  - file: mdi:weather-lightning-rainy
+    id: img_weather_lightning_rainy
+    resize: ${gfx_rendersize_home_weatherimg}
+        
+  - file: mdi:weather-lightning
+    id: img_weather_lightning 
+    resize: ${gfx_rendersize_home_weatherimg}
+
+  - file: mdi:weather-night
+    id: img_weather_night
+    resize: ${gfx_rendersize_home_weatherimg}
+
+  - file: mdi:weather-night-partly-cloudy
+    id: img_weather_night_partly_cloudy
+    resize: ${gfx_rendersize_home_weatherimg}
+
+  - file: mdi:weather-partly-cloudy
+    id: img_weather_partly_cloudy
+    resize: ${gfx_rendersize_home_weatherimg}
+
+  - file: mdi:weather-partly-rainy
+    id: img_weather_partly_rainy
+    resize: ${gfx_rendersize_home_weatherimg}
+    
+  - file: mdi:weather-partly-snowy
+    id: img_weather_partly_snowy
+    resize: ${gfx_rendersize_home_weatherimg}
+    
+  - file: mdi:weather-partly-snowy-rainy
+    id: img_weather_partly_snowy_rainy
+    resize: ${gfx_rendersize_home_weatherimg}
+        
+  - file: mdi:weather-pouring
+    id: img_weather_pouring
+    resize: ${gfx_rendersize_home_weatherimg}
+
+  - file: mdi:weather-rainy
+    id: img_weather_rainy
+    resize: ${gfx_rendersize_home_weatherimg}
+
+  - file: mdi:weather-snowy
+    id: img_weather_snowy
+    resize: ${gfx_rendersize_home_weatherimg}
+
+  - file: mdi:weather-sunny
+    id: img_weather_sunny
+    resize: ${gfx_rendersize_home_weatherimg}
+
+  - file: mdi:weather-snowy-rainy
+    id: img_weather_snowy_rainy
+    resize: ${gfx_rendersize_home_weatherimg}
+
+#  - file: mdi:weather-windy
+#    id: img_weather_windy
+#    resize: ${gfx_rendersize_home_weatherimg}
+
+
+  - file: mdi:weather-snowy-heavy
+    id: img_weather_snowy_heavy
+    resize: ${gfx_rendersize_home_weatherimg}
+
+
+  - file: ${shortcut_1_icon}
+    id: icon_shortcut_1
+    resize: 19x19
+
+  - file: ${shortcut_2_icon}
+    id: icon_shortcut_2
+    resize: 19x19
+
+  - file: ${shortcut_3_icon}
+    id: icon_shortcut_3
+    resize: 19x19
+
+  - file: ${shortcut_4_icon}
+    id: icon_shortcut_4
+    resize: 19x19
+   
+  - file: ${shortcut_5_icon}
+    id: icon_shortcut_5
+    resize: 19x19   
+
+  - file: ${shortcut_6_icon}
+    id: icon_shortcut_6
+    resize: 19x19   
+
+  - file: ${shortcut_7_icon}
+    id: icon_shortcut_7
+    resize: 19x19   
+
+  - file: ${shortcut_8_icon}
+    id: icon_shortcut_8
+    resize: 19x19   
+

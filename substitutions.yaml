@@ -1,0 +1,45 @@
+<<: !include config.yaml
+
+fw_version: ControlD 0.1.8-R3
+
+###############################################
+# CONFIG - RENDER ENGINE                      #
+###############################################
+gfx_renderpos_icon_tl: '0, 0'
+gfx_renderpos_title_tl: '15, 0'
+gfx_renderpos_info_tr: '128, 0'
+gfx_renderpos_icon_bar1: '82, 0'
+gfx_renderpos_icon_bar2: '67, 0'
+gfx_renderpos_icon_bar3: '53, 0'
+gfx_renderpos_info_tcenter: '64, 0'
+gfx_renderpos_msgbox_center: '64, 24'
+gfx_renderpos_msgbox_centerb: '64, 38'
+gfx_renderpos_icon_mainl: '1, 40'
+gfx_renderpos_icon_mainc: '50, 40'
+gfx_renderpos_icon_mainr: '102, 40'
+
+gfx_renderpos_graph_centerb: '0, 12'
+gfx_renderpos_graph_side_top: "0, 12"
+gfx_renderpos_graph_side_bottom: "128, 49"  
+gfx_rendersize_width_graph: "128"
+gfx_rendersize_height_graph: "40"  
+
+gfx_renderpos_title_bl: '0, 51'
+gfx_renderpos_info_br: '128, 51'
+gfx_icon_size_normal: '24x24'
+gfx_icon_size_small: '15x15'
+gfx_renderpos_icon_bcenter: '64, 64'  
+
+gfx_renderpos_home_weatherimg: '63, 12'
+gfx_rendersize_home_weatherimg: '36x36'
+gfx_renderpos_home_weatherstate: '0, 0'
+gfx_renderpos_home_weatherwind: '22, 33'
+gfx_renderpos_home_weatherwindimg: '-1, 33'
+gfx_rendersize_home_weatherwindimg: '17x17'
+gfx_renderpos_home_weathertemp: '22, 16'
+gfx_renderpos_home_weathertempimg: '-1, 16'
+gfx_rendersize_home_weathertempimg: '17x17'
+gfx_rendersize_home_shortcut: '18x18'
+gfx_renderpos_home_icon_mainl: '10, 44'
+gfx_renderpos_home_icon_mainc: '54, 45'
+gfx_renderpos_home_icon_mainr: '100, 43'

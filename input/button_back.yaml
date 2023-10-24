@@ -1,0 +1,63 @@
+- if:
+    condition:
+      lambda: 'return id(controld_activity).state == 1;'
+    then: 
+      - binary_sensor.template.publish:
+          id: controld_activity
+          state: True
+      - if:
+          condition:
+            display.is_displaying_page: home_view
+          then:  
+            - display.page.show: home_view        
+            - component.update: oled_lcd                     
+      - if:
+          condition:
+            display.is_displaying_page: media_view
+          then:
+            - display.page.show: home_view        
+            - component.update: oled_lcd           
+      - if:
+          condition:
+            display.is_displaying_page: climate_view
+          then:
+            - display.page.show: home_view        
+            - component.update: oled_lcd           
+      - if:
+          condition:
+            display.is_displaying_page: remote_view
+          then:
+            - text_sensor.template.publish:
+                id: action_call
+                state: "remote_back"
+      - if:
+          condition:
+            display.is_displaying_page: light_view
+          then:
+            - display.page.show: home_view        
+            - component.update: oled_lcd           
+      - if:
+          condition:
+            display.is_displaying_page: config_view
+          then:
+            - display.page.show: home_view        
+            - component.update: oled_lcd          
+      - if:
+          condition:
+            display.is_displaying_page: launcher_view
+          then:
+            - display.page.show: home_view        
+            - component.update: oled_lcd                
+      - if:
+          condition:
+            display.is_displaying_page: shortcuts_view
+          then:
+            - display.page.show: home_view        
+            - component.update: oled_lcd                 
+- if:
+    condition:
+      lambda: 'return id(controld_activity).state == 0;'
+    then:                 
+      - binary_sensor.template.publish:
+          id: controld_activity
+          state: True

@@ -1,0 +1,98 @@
+- if:
+    condition:
+      lambda: 'return id(controld_activity).state == 1;'
+    then: 
+      - binary_sensor.template.publish:
+          id: controld_activity
+          state: True  
+      - if:
+          condition:
+            display.is_displaying_page: home_view
+          then:    
+            - homeassistant.service:
+                service: input_boolean.toggle
+                data:
+                  entity_id: ${climate_heater_state}                  
+      - if:
+          condition:
+            display.is_displaying_page: media_view
+          then:
+            - homeassistant.service:
+                service: media_player.media_next_track
+                data:
+                  entity_id: ${mediaplayer}
+      - if:
+          condition:
+            display.is_displaying_page: climate_view
+          then:
+            - homeassistant.service:
+                service: input_number.increment
+                data:
+                  entity_id: ${climate_target_temp}
+      - if:
+          condition:
+            display.is_displaying_page: remote_view
+          then:
+            - homeassistant.service:
+                service: input_number.increment
+                data:
+                  entity_id: ${audio_volume}
+      - if:
+          condition:
+            display.is_displaying_page: light_view
+          then:
+            - homeassistant.service:
+                service: input_select.select_next
+                data:
+                  entity_id: ${light_scene_select}   
+      - if:
+          condition:
+            display.is_displaying_page: config_view
+          then:
+            - button.press: esp_reboot
+      - if:
+          condition:
+            display.is_displaying_page: vacuum_view 
+          then:
+            - lambda: |-
+                if (id(vacuum_selected_item) == 8) {
+                  id(vacuum_selected_item) = 1;                             
+                } else {
+                  id(vacuum_selected_item) += 1;
+                }                      
+            - component.update: oled_lcd
+            - delay: 25ms
+            - component.update: oled_lcd       
+      - if:
+          condition:
+            display.is_displaying_page: launcher_view 
+          then:
+            - lambda: |-
+                if (id(launcher_selected_item) == 8) {
+                  id(launcher_selected_item) = 1;                             
+                } else {
+                  id(launcher_selected_item) += 1;
+                }                      
+            - component.update: oled_lcd
+            - delay: 25ms
+            - component.update: oled_lcd   
+      - if:
+          condition:
+            display.is_displaying_page: shortcuts_view 
+          then:
+            - lambda: |-
+                if (id(shortcuts_selected_item) == 8) {
+                  id(shortcuts_selected_item) = 1;                             
+                } else {
+                  id(shortcuts_selected_item) += 1;
+                }                      
+            - component.update: oled_lcd
+            - delay: 25ms
+            - component.update: oled_lcd                                                                    
+- if:
+    condition:
+      lambda: 'return id(controld_activity).state == 0;'
+    then:                 
+      - binary_sensor.template.publish:
+          id: controld_activity
+          state: True
