@@ -1,6 +1,7 @@
 ###############################################
-#               - ControlD32 -                #
+                - ControlD32 -                 
 ###############################################
+
 (WORK IN PROGRESS)
 ESP32-based Wireless Smart Remote firmware for the ESPhome/ESP-IDF framework.
 
