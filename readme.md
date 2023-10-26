@@ -2,7 +2,7 @@
 #               - ControlD32 -                #
 ###############################################
 (WORK IN PROGRESS)
-ESP-32 microcontroller Wireless Smart Remote firmware for ESPhome/ESP-IDF framework.
+ESP32-based Wireless Smart Remote firmware for the ESPhome/ESP-IDF framework.
 
 ![Snapchat-34284245](https://github.com/henriklud/ControlD32/assets/9981417/17363b4d-cac0-4c69-8c36-06ba419c5b30)
 ![Snapchat-795408525](https://github.com/henriklud/ControlD32/assets/9981417/ebe6b22c-04fd-4058-b60d-650c1a2c085a)
